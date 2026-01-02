@@ -1,0 +1,72 @@
+Q1. You are design a BankAccount class with fields of accountNumber, balance and accountHolderName .
+	
+      A. Should balance be public are not ? Justify
+	ans. So, balance should not be public ,it should be private ,because balance should not visible to all and it is only accessible by the 	holder so that only holder can see the balance that exist in the account. As per real world scenarios we see the atm machines, at there 	only account number is public rest all are the private .
+
+      B. How would you control deposits and withdrawals using methods?
+	ans. we control the deposits and withdrawals using methods by conditional statements like if-else block. lets assume an Example:
+			Ex. balance=10,000;
+		for deposit method we use amount ,if the amount is >=1 then only deposit successful and the balance is updated according to the 		deposited amount. If the amount is <=0 then it throws an exception like deposit amount must be >=1. 	
+			deposit amount=5,000;//success
+			deposit amount=0 or -1//exception
+		for withdrawals method we use amount ,if the amount is less than the balance then only withdrawals successful and the balance is 		updated according to the withdrawal amount. If the withdrawal amount is greater than the balance it throws an exception like 			withdrawn amount must be less than the balance 	
+			withdraw amount=5,000; //success
+			withdraw amount=20,000; //exception
+      C. How does encapsulation help enforce banking rules?		
+	ans. Encapsulation is mainly used to hide the private details. So, by using encapsulation we do not have any direct access to the 		     details. By using encapsulation we can achieve security to out details like not to access the details directly.  In every banking 		     applications they use encapsulation to hide the important details of the customer.
+
+Q2. A withdrawal fails due to insufficient balance.
+	
+	A. would you use a checked or unchecked exception?
+	  ans. we use unchecked exceptions for the insufficient balance while withdrawing an amount greater than the balance, because the it 	 	       does not occurs at compile time so compile time exceptions are checked exceptions. And the this occurs at runtime so we use 		       unchecked exceptions. 
+		unchecked exception output: Insufficient balance exception.
+
+        B. Why is exception handling critical?
+	  ans. Exceptional handling is critical based on the scenarios we built the application.
+
+        C. How would custom exception improve code clarity?
+	  ans. Custom exception improves code clarity because the custom exceptions are used to avoid the errors and it prints the output in a 	   	       way that customer can read and understand the exception that occurred. So that it improves the code clarity.
+
+Q3. An E-commerce system supports Physical product and Digital product.
+
+	A. What common behaviour would you abstract
+	  ans. The common behaviour is price, colour, size.
+
+	B. would you use an abstract class or interface?
+	  ans. we use abstract class because ,it contains some common behaviours. So that based on the requirement we can use them. But in 	    	  interface if we write anything it must be override by the child class. so for that Abstract class is preffered to use. 
+
+Q4. What is polymorphism in Java?	
+	  
+       A. Explain compile-time polymorphism and run-time polymorphism?
+	 ans. Compile-time Polymorphism: It occurs at compile time. It is also called as method Overloading. Signature of compile-time 	  		      polymorphism is, it can have same method name with different parameters in same class.
+		 Example: void sum(int a, int b){}
+			  void sum(int a, int b, int c){}
+			  void sum(float a, float b){}
+
+	      Run-time Polymorphism: It occurs at run time. It is also called as method Overriding. Signature of run-time polymorphism is, it 	    	      can have same method name with same parameters but in different classes with different implementation. It is only possible with 		      inheritance.
+	      Example: class A{
+				void sum(int a, int b){}
+				}
+			class B extends A{
+ 				void sum(int a, int b){}
+ 				}
+
+       B. Which one is achieved using method overriding?
+	 ans. Interface is achieved using method overriding, because in interface we use parent child so the parent class methods are override 	 	      to the child class with @Override annotation.
+
+       C. Why is runtime polymorphism is important in real time application?
+	 ans. lets assume a bank as example we can have national bank as parent and state bank as child. So the child bank overrides the methods 	      in parent bank with same method name and same parameter but different implementation. And methods are like rules that child should 	      follow and implementation can be custom.
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
