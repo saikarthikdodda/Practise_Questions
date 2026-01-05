@@ -1,0 +1,72 @@
+Q1 . You need to store a list of customer IDs where 
+	->Order of insertion must be preserved
+	->Duplicate IDs are allowed
+
+	A. Which Java collection would you use and why ?
+	ans. I use ArrayList because arraylist preserves insertion order and it allows duplicates .It is a class which is derived from an interface called List(I).
+		Ex. List<Integer> li=new ArrayList<>();
+			li.add(10);
+			li.add(20);
+			li.add(30);
+			li.add(10);
+			li.add(20);
+			li.add(30);
+			System.out.println(li);
+			
+		output:[10,20,30,10,20,30]
+
+	B. What would change if duplicates were not allowed?
+	ans. If duplicates were not allowed in arraylist it cannot change anything ,because it preserves an insertion order so it prints elements in insertion order.
+
+Q2. In a multi-threaded application,multiple threads are updatea shared collection.
+	
+	A.Why are normal collections like ArrayList or HashMap not thread-safe?
+	ans. ArrayList and HashMap are not  thread safe, because arraylist and hashmap are not synchronized. So,it do not acquire locks thats why these are not 			synchronized.
+	
+	B.Name one threadsafe collection in Java.
+	ans.HashTable is a threadsafe collection in java, because it is synchronized.So it acquire locks,thats why Hashtable is a threadsafe collection in java. 
+	
+	C.When would you prefer a concurrent collection over Collections.SynchronizedList() ?
+	ans. I prefer Concurret collection over Collections.SynchronizedList() is when ever I have many threads. So a that time read and write operations are faster in 	concurrent collections than Collections.SynchronizedList().
+
+Q3.If an ArrayList is initialized with with a size of 25 and a 26th element is added, What happens internally?
+	ans. Actually the default size of an arrayList is 10 .if we add 11th element it arraylist will be resizes to *50% of original size. So if we add 11th element it 	resizes to 15. so when we add 16th element again it resizes to half of its original size. like thatif we add 26th element to the arraylistcosists of size 25 then  	resizes to the half o it original size because arraylist is flexible in size. So, this is the process that happens internally when we add the 26th element to the 	arraylist of size 25.
+
+Q4. You are given a list of employee names where:
+	->Names ay repeat
+	->Case should be treated as same ("John" or "john)
+	Your task is to :
+	1.Remove duplicates
+	2.Preserve the orginal insertion order
+	3.Print the unique employee names
+	Input:["John","Alice","john","Bob","Alice","BOB"]
+	Output:["John","Alice","Bob"]
+	ans. 
+		import java.util.LinkedHashSet;
+		import java.util.Set;
+
+		public class New {
+  		public static void main(String[] args) {
+    		Set<String> names = new LinkedHashSet<>();
+    		names.add("John");
+    		names.add("Alice");
+    		names.add("john");
+    		names.add("Bob");
+    		names.add("Alice");
+    		names.add("BOB");
+    		System.out.println(names); //Here it prints the output as ["John","Alice","john","Bob","BOB"]
+		Set<String> unique = new LinkedHashSet<>();
+    		for(String name : names){
+      			unique.add(name.toLowerCase());
+    		}
+    		for(String name :unique){
+      			System.out.println(name.substring(0,1).toUpperCase()+name.substring(1)); //Here it prints the output as ["John","Alice","Bob"]
+    		}
+  		}
+		}
+
+
+
+
+
+
